@@ -1,13 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-black text-white;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
 }
 
-body {
-  font-family: 'Inter', sans-serif;
+@layer utilities {
+  .text-gold {
+    color: #d4a017;
+  }
+
+  .bg-gold {
+    background-color: #d4a017;
+  }
+
+  .border-gold {
+    border-color: #d4a017;
+  }
+
+  .font-display {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #f5d78e 0%, #d4a017 50%, #b8860b 100%);
+  }
+
+  .gold-text-gradient {
+    background: linear-gradient(135deg, #f5d78e 0%, #d4a017 50%, #b8860b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .service-card:hover .service-img {
+    transform: scale(1.05);
+  }
+}
+
+.brands-track {
+  display: flex;
+  gap: 3rem;
+  animation: scrollLeft 35s linear infinite;
+  width: max-content;
+}
+
+.brands-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d4a017, transparent);
 }

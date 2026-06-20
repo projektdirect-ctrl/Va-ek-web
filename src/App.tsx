@@ -1,57 +1,25 @@
-import Navbar from './components/Navbar';
+import Navigation from './components/Navigation';
 import Hero from './components/Hero';
-import About from './components/About';
 import Services from './components/Services';
-import Process from './components/Process';
+import CarBrands from './components/CarBrands';
+import HowItWorks from './components/HowItWorks';
 import Gallery from './components/Gallery';
+import WhyUs from './components/WhyUs';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import AdminLogin from './pages/AdminLogin';
-import AdminPanel from './pages/AdminPanel';
-import { AuthProvider, useAuth } from './context/AuthContext';
 
-function AdminRoute() {
-  const { user, loading } = useAuth();
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-950 flex items-center justify-center">
-        <div className="w-6 h-6 border-2 border-amber-400 border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
-  }
-
-  if (user) return <AdminPanel />;
-  return <AdminLogin />;
-}
-
-function AppContent() {
-  const isAdmin = window.location.pathname === '/admin';
-
-  if (isAdmin) {
-    return <AdminRoute />;
-  }
-
+export default function App() {
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <div className="bg-black min-h-screen">
+      <Navigation />
       <Hero />
-      <About />
       <Services />
-      <Process />
+      <CarBrands />
+      <HowItWorks />
       <Gallery />
+      <WhyUs />
       <Contact />
       <Footer />
     </div>
   );
 }
-
-function App() {
-  return (
-    <AuthProvider>
-      <AppContent />
-    </AuthProvider>
-  );
-}
-
-export default App;

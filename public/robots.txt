@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /admin
 
-Sitemap: https://pracejrb.cz/sitemap.xml
+Sitemap: https://mobilni-autoservis-patak.cz/sitemap.xml
