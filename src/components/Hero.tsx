@@ -1,85 +1,113 @@
-import { Phone, ChevronDown, MapPin } from 'lucide-react';
+import { ArrowDown, Shield, Clock, Star } from 'lucide-react';
+import { useSiteTexts } from '../hooks/useSiteTexts';
 
 export default function Hero() {
+  const { t } = useSiteTexts();
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0">
-        <img
-          src="https://images.pexels.com/photos/3806249/pexels-photo-3806249.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          alt="Mobilní autoservis"
-          className="w-full h-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/65 to-black/92" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-blue-950">
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-20"
+        style={{ backgroundImage: "url('https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1600')" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-950 via-blue-950/90 to-blue-950/50" />
+
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div className="absolute top-20 right-10 w-72 h-72 border-4 border-amber-400/10 rotate-12" />
+        <div className="absolute bottom-20 left-10 w-48 h-48 border-4 border-amber-400/10 -rotate-6" />
+        <div className="absolute top-1/2 right-1/4 w-4 h-4 bg-amber-400/20 rotate-45" />
       </div>
 
-      <div className="absolute top-0 left-0 right-0 h-px gold-gradient opacity-60" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div>
+            <div className="inline-flex items-center space-x-2 bg-amber-400/10 border border-amber-400/30 px-4 py-2 mb-6 md:mb-8">
+              <span className="w-2 h-2 bg-amber-400 rounded-full animate-pulse" />
+              <span className="text-amber-400 font-bold uppercase tracking-widest text-xs">
+                {t('hero_badge', 'Ústecký kraj & celá ČR')}
+              </span>
+            </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full pt-24 pb-20">
-        <div className="max-w-4xl">
-          <div className="flex items-center gap-3 mb-4 sm:mb-6">
-            <div className="h-px w-8 sm:w-12 bg-gold-500" />
-            <span className="text-gold-400 text-xs sm:text-sm font-medium tracking-[0.25em] sm:tracking-[0.3em] uppercase">
-              Václav Paták — Mobilní servis po celém regionu
-            </span>
-          </div>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white uppercase leading-none mb-6 md:mb-8">
+              {t('hero_title_line1', 'Stavařina')}
+              <br />
+              <span className="text-blue-300">{t('hero_title_line2', 'pořádně.')}</span>
+            </h1>
 
-          <h1 className="font-display leading-none mb-4 tracking-wider">
-            <span className="text-white block text-5xl sm:text-7xl md:text-8xl lg:text-9xl">PŘIJEDEME</span>
-            <span className="gold-text-gradient block text-5xl sm:text-7xl md:text-8xl lg:text-9xl">KAM POTŘEBUJETE</span>
-          </h1>
+            <p className="text-white/70 text-base sm:text-lg md:text-xl leading-relaxed mb-8 md:mb-10 max-w-xl">
+              {t('hero_subtitle', 'Kompletní rekonstrukce domů, obklady, zámková dlažba, sádrokartony a zednické práce všeho druhu. Práci děláme poctivě a na čas.')}
+            </p>
 
-          <p className="text-gray-300 text-base sm:text-lg md:text-xl font-light leading-relaxed mt-4 sm:mt-6 mb-7 sm:mb-10 max-w-2xl">
-            Profesionální mobilní autoservis — opravy, výměna pneu, hloubkové čištění interiéru,
-            diagnostika a poradenství. Specializujeme se na BMW a Škoda, obsluhujeme i ostatní značky.
-            Přijedeme k vám domů, do práce nebo přímo na místo havárie.
-          </p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 md:mb-12">
+              <a
+                href="#kontakt"
+                className="bg-amber-400 text-blue-950 px-7 py-4 font-black uppercase tracking-widest hover:bg-amber-300 transition-colors text-sm text-center"
+              >
+                {t('hero_cta_primary', 'Chci nacenit projekt')}
+              </a>
+              <a
+                href="#sluzby"
+                className="border-2 border-white/30 text-white px-7 py-4 font-bold uppercase tracking-wider hover:border-amber-400 hover:text-amber-400 transition-colors text-sm text-center"
+              >
+                {t('hero_cta_secondary', 'Co umíme')}
+              </a>
+            </div>
 
-          <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 items-stretch xs:items-center">
-            <a
-              href="tel:+420735237360"
-              className="group flex items-center justify-center gap-3 gold-gradient text-black font-semibold px-6 sm:px-8 py-3.5 sm:py-4 rounded hover:opacity-90 transition-all duration-300 text-base sm:text-lg"
-            >
-              <Phone size={18} className="group-hover:animate-pulse shrink-0" />
-              +420 735 237 360
-            </a>
-            <a
-              href="#sluzby"
-              className="flex items-center justify-center gap-2 border border-white/30 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded hover:border-gold-500 hover:text-gold-400 transition-all duration-300 text-sm sm:text-base"
-            >
-              Zobrazit služby
-              <ChevronDown size={16} />
-            </a>
-          </div>
-
-          <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-5 sm:gap-8 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/10">
-            {[
-              { value: '10+', label: 'Let zkušeností' },
-              { value: '5 000+', label: 'Zákazníků' },
-              { value: '24/7', label: 'Dostupnost' },
-              { value: '100 km', label: 'Dosah servisu' },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <div className="font-display text-2xl sm:text-3xl md:text-4xl gold-text-gradient tracking-widest">
-                  {stat.value}
-                </div>
-                <div className="text-gray-400 text-xs sm:text-sm mt-1 tracking-wide">{stat.label}</div>
+            <div className="grid grid-cols-3 gap-3 sm:gap-6">
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl font-black text-amber-400">{t('hero_stat1_num', '10+')}</div>
+                <div className="text-white/50 text-xs uppercase tracking-wider mt-1">{t('hero_stat1_label', 'Let zkušeností')}</div>
               </div>
-            ))}
+              <div className="text-center border-x border-white/10">
+                <div className="text-2xl sm:text-3xl font-black text-amber-400">{t('hero_stat2_num', '200+')}</div>
+                <div className="text-white/50 text-xs uppercase tracking-wider mt-1">{t('hero_stat2_label', 'Dokončených projektů')}</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl font-black text-amber-400">{t('hero_stat3_num', '100%')}</div>
+                <div className="text-white/50 text-xs uppercase tracking-wider mt-1">{t('hero_stat3_label', 'Spokojených klientů')}</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative hidden lg:block">
+            <div className="relative">
+              <div className="absolute -top-4 -left-4 w-full h-full border-2 border-amber-400/30" />
+              <img
+                src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Rekonstrukce"
+                className="w-full h-[520px] object-cover"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-amber-400 p-6 max-w-[200px]">
+                <div className="flex items-center space-x-2 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 text-blue-950 fill-blue-950" />
+                  ))}
+                </div>
+                <p className="text-blue-950 font-black text-sm uppercase tracking-wide">Ověřená kvalita</p>
+                <p className="text-blue-900/70 text-xs mt-1">Stovky spokojených zákazníků</p>
+              </div>
+            </div>
+
+            <div className="absolute -bottom-12 -left-8 bg-blue-900 border border-white/10 p-4 flex items-center space-x-3">
+              <Shield className="h-8 w-8 text-amber-400 shrink-0" />
+              <div>
+                <div className="text-white font-bold text-sm">Garance kvality</div>
+                <div className="text-white/50 text-xs">Záruka na odvedenou práci</div>
+              </div>
+            </div>
+            <div className="absolute -top-8 right-0 bg-blue-900 border border-white/10 p-4 flex items-center space-x-3">
+              <Clock className="h-8 w-8 text-amber-400 shrink-0" />
+              <div>
+                <div className="text-white font-bold text-sm">Dodržení termínů</div>
+                <div className="text-white/50 text-xs">Vždy na čas</div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2">
-        <a href="#sluzby" className="flex flex-col items-center gap-2 text-gold-500 hover:text-gold-300 transition-colors">
-          <span className="text-xs tracking-[0.3em] uppercase font-medium">Více informací</span>
-          <ChevronDown size={20} className="animate-bounce" />
+        <a href="#o-nas" className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 hover:text-amber-400 transition-colors animate-bounce">
+          <ArrowDown className="h-6 w-6" />
         </a>
-      </div>
-
-      <div className="absolute bottom-0 left-0 right-0 flex items-center gap-3 px-5 py-3 bg-black/80 backdrop-blur-sm border-t border-white/10 sm:hidden">
-        <MapPin size={14} className="text-gold-500 shrink-0" />
-        <span className="text-gray-300 text-xs">Přijedeme kamkoliv — Ústecký kraj a okolí</span>
       </div>
     </section>
   );
